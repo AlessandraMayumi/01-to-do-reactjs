@@ -1,0 +1,15 @@
+.outerEmpty {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.innerEmpty {
+    display: block;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    color: var(--gray-400)
+}

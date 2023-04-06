@@ -1,0 +1,28 @@
+.container {
+    background: var(--gray-500);
+    color: var(--gray-100);
+    border-radius: 8px;
+    border: 2px solid var(--gray-400);
+    margin-bottom: 20px;
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: 25px 660px 20px 5px;
+    justify-content: space-between;
+    align-content: center;
+    text-align: justify;
+}
+
+.input {
+    margin-left: 10px;
+    color: var(--blue);
+    background-color: var(--blue);
+}
+
+.p {
+    padding: 8px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}

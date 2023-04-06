@@ -1,16 +1,16 @@
 .container {
     height: 54px;
-    position: relative;
     margin-top: -27px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .input {
     height: 100%;
-    width: 638px;
+    width: 640px;
     background: var(--gray-500);
+    border-color: var(--gray-700);
     border-radius: 8px;
-    border: 0;
-    margin-right: 8px;
     padding-left: 20px;
     outline: none;
 }

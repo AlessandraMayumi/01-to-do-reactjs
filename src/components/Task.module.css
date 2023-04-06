@@ -1,0 +1,27 @@
+.wrapper {
+    color: var(--gray-300);
+    margin-top: 90px;
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.primary {
+    color: var(--blue);
+}
+
+.secondary {
+    color: var(--purple);
+}
+
+.count {
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    padding: 2px 8px ;
+    border-radius: 8px;
+    margin-left: 10px;
+    font-size: .9rem;
+}
