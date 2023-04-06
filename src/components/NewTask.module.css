@@ -1,0 +1,28 @@
+.container {
+    height: 54px;
+    position: relative;
+    margin-top: -27px;
+}
+
+.input {
+    height: 100%;
+    width: 638px;
+    background: var(--gray-500);
+    border-radius: 8px;
+    border: 0;
+    margin-right: 8px;
+    padding-left: 20px;
+    outline: none;
+}
+
+.button {
+    height: 100%;
+    width: 90px;
+    background-color: var(--blue-dark);
+    border-radius: 8px;
+    border: 0;
+}
+
+.button:hover{
+    background-color: var(--blue);
+}

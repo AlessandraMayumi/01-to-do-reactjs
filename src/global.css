@@ -24,7 +24,6 @@
 
 body { 
     background: var(--gray-600);
-    color: var(--gray-100);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -32,4 +31,6 @@ body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    color: var(--gray-100);
+    transition: color 0.1s, background-color 0.1;
 }
