@@ -1,12 +1,18 @@
 // Component
-import { TaskItem } from './TaskItem'
+import { TaskItem, TaskItemProps } from './TaskItem'
 import { TaskEmpty } from './TaskEmpty'
 
 // Style
 import styles from './Task.module.css'
+import { useState } from 'react'
 
 
 export function Task() {
+    // initital state value
+    const initialTaskList: Array<TaskItemProps> = [{id:'id', content: 'batata'}]
+    // state
+    const [taskList, setTaskList] = useState(initialTaskList)
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.intro}>
@@ -20,9 +26,10 @@ export function Task() {
                 </div>
             </div>
             <div>
-                <TaskItem />
-                <TaskItem />
-                <TaskEmpty />
+                {!taskList.length && <TaskEmpty />}
+                {taskList.map(item => {
+                    return <TaskItem {...item} />
+                })}
             </div>
         </div>
     )

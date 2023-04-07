@@ -6,6 +6,13 @@
 #### The UI project is placed in Figma
 - Figma: https://www.figma.com/file/HSMBp9x3SINgp2LmwAxNPM/ToDo-List-(Copy)?node-id=0%3A1&t=FY6c1KksWdiMEXFZ-1
 
+``` javascript
+// add new todo task
+// check uncheck tas as finished
+// remove task from list
+// show finished task
+```
+
 ## References 
 - Vite: https://vitejs.dev/
 
