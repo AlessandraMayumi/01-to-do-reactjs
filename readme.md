@@ -1,3 +1,23 @@
+#### TO DO list that you can 
+
+- add a new todo task
+- check and uncheck tasks as completed
+- remove task from list
+- count finished task
+
+![TO DO list](public/todosample.png)
+
+#### This frontend app explores
+- handling state in React
+- list map and React key
+- function as a property
+- CSS 
+#### To install and run this app: 
+``` bash
+npm install
+npm run dev
+```
+
 #### This project is using `Vite`:
     - React
     - TypeScript
@@ -5,15 +25,6 @@
 
 #### The UI project is placed in Figma
 - Figma: References
-
-#### Handle React input with state
-
-``` javascript
-// add new todo task
-// check uncheck tas as finished
-// remove task from list
-// show finished task
-```
 #
 ## References 
 - Vite: https://vitejs.dev/
