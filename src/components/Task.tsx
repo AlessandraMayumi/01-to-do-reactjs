@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 // Component
 import { TaskItem, TaskItemProps } from './TaskItem'
 import { TaskEmpty } from './TaskEmpty'
@@ -9,22 +10,31 @@ import { useState } from 'react'
 
 export function Task() {
     // initital state value
-    const initialTaskList: Array<TaskItemProps> = [{ id: 'id', content: 'batata' }]
+    const initialTaskList: Array<TaskItemProps> = []
     // state
     const [taskList, setTaskList] = useState(initialTaskList)
+    const [newTask, setNewTask] = useState('')
 
-    function addTaskItem(item: TaskItemProps) {
+    function handleNewTask() {
+        const item = {
+            id: uuidv4(),
+            content: newTask
+        }
         setTaskList([...taskList, item])
     }
 
     return (
         <div className={styles.container}>
-            <div className={styles.newTask}>
-                <input placeholder="Adicione uma nova tarefa" className={styles.input} />
-                <button className={styles.button}>
+            <label className={styles.newTask}>
+                <input
+                    className={styles.input}
+                    placeholder="Adicione uma nova tarefa"
+                    onChange={e => { setNewTask(e.target.value) }}
+                    value={newTask} />
+                <button className={styles.button} onClick={handleNewTask} >
                     Criar
                 </button>
-            </div>
+            </label>
             <div className={styles.tasks}>
                 <div className={styles.intro}>
                     <div>
@@ -39,7 +49,7 @@ export function Task() {
                 <div>
                     {!taskList.length && <TaskEmpty />}
                     {taskList.map(item => {
-                        return <TaskItem {...item} />
+                        return <TaskItem key={item.id} {...item} />
                     })}
                 </div>
             </div>
