@@ -14,12 +14,30 @@ export function Task() {
     // state
     const [taskList, setTaskList] = useState(initialTaskList)
     const [newTask, setNewTask] = useState('')
+    const [count, setCount] = useState(0)
+    const [countComplete, setCountComplete] = useState(0)
+
+    function toggleIsComplete(id: string) {
+        let countCompleteUpdate = 0 // update countComplete state
+        const taskListUpdated = taskList.map(task => {
+            if (task.id === id) {
+                countCompleteUpdate += task.isComplete ? 0 : 1
+                return { ...task, isComplete: !task.isComplete }
+            }
+            countCompleteUpdate += task.isComplete ? 1 : 0
+            return task;
+        })
+        setCountComplete(countCompleteUpdate)
+        setTaskList(taskListUpdated)
+    }
 
     function handleNewTask() {
         const item = {
             id: uuidv4(),
-            content: newTask
+            content: newTask,
+            isComplete: false,
         }
+        setCount(taskList.length + 1)
         setTaskList([...taskList, item])
     }
 
@@ -39,17 +57,20 @@ export function Task() {
                 <div className={styles.intro}>
                     <div>
                         <strong className={styles.primary}>Tarefas criadas</strong>
-                        <strong className={styles.count}>5</strong>
+                        <strong className={styles.count}>{count}</strong>
                     </div>
                     <div>
                         <strong className={styles.secondary}>Concluídas</strong>
-                        <strong className={styles.count}>2 de 5</strong>
+                        <strong className={styles.count}>{countComplete} de {count}</strong>
                     </div>
                 </div>
                 <div>
                     {!taskList.length && <TaskEmpty />}
                     {taskList.map(item => {
-                        return <TaskItem key={item.id} {...item} />
+                        return <TaskItem
+                            key={item.id}
+                            toggleIsComplete={toggleIsComplete}
+                            {...item} />
                     })}
                 </div>
             </div>
