@@ -9,10 +9,11 @@ export interface TaskItemProps {
 
 interface TaskItemComponentProps extends TaskItemProps {
     toggleIsComplete: Function
+    deleteTask: Function
 }
 
 export function TaskItem(props: TaskItemComponentProps) {
-    const { id, content, isComplete, toggleIsComplete } = props
+    const { id, content, isComplete, toggleIsComplete, deleteTask } = props
     return (
         <div className={styles.container}>
             <input
@@ -24,7 +25,11 @@ export function TaskItem(props: TaskItemComponentProps) {
             <p className={styles.p}>
                 {content}
             </p>
-            <div className={styles.icon}><Trash size={28} /></div>
+            <div
+                className={styles.icon}
+                onClick={() => deleteTask(id)}>
+                <Trash size={28} />
+            </div>
         </div>
     )
 }

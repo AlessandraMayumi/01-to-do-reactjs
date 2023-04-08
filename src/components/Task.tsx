@@ -31,6 +31,23 @@ export function Task() {
         setTaskList(taskListUpdated)
     }
 
+    function deleteTask(id: string) {
+        /** when deletind a task you to
+         * update task list
+         * update count tas items
+         * update count complete if deleted task is marked as completed
+         */
+        const taskListDeleted = taskList.filter(task => {
+            if (task.id === id) {
+                setCount(count - 1)
+                if (task.isComplete) setCountComplete(countComplete - 1)
+                return false
+            }
+            return true
+        })
+        setTaskList(taskListDeleted)
+    }
+
     function handleNewTask() {
         const item = {
             id: uuidv4(),
@@ -70,6 +87,7 @@ export function Task() {
                         return <TaskItem
                             key={item.id}
                             toggleIsComplete={toggleIsComplete}
+                            deleteTask={deleteTask}
                             {...item} />
                     })}
                 </div>
